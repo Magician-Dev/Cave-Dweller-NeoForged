@@ -1,0 +1,200 @@
+{
+  "chase": {
+    "sounds": [
+      {
+        "name": "cavenoise:chase_4",
+        "stream": false
+      },
+      {
+        "name": "cavenoise:chase_3",
+        "stream": false
+      },
+      {
+        "name": "cavenoise:chase_2",
+        "stream": false
+      },
+      {
+        "name": "cavenoise:chase_1",
+        "stream": false
+      }
+    ]
+  },
+  "stalk": {
+    "sounds": [
+      {
+        "name": "cavenoise:stalk_5",
+        "stream": false
+      },
+      {
+        "name": "cavenoise:stalk_4",
+        "stream": false
+      },
+      {
+        "name": "cavenoise:stalk_3",
+        "stream": false
+      },
+      {
+        "name": "cavenoise:stalk_2",
+        "stream": false
+      },
+      {
+        "name": "cavenoise:stalk_1",
+        "stream": false
+      }
+    ]
+  },
+  "spotted": {
+    "sounds": [
+      {
+        "name": "cavenoise:spotted",
+        "stream": false
+      }
+    ]
+  },
+  "flee": {
+    "sounds": [
+      {
+        "name": "cavenoise:flee_2",
+        "stream": false
+      },
+      {
+        "name": "cavenoise:flee_1",
+        "stream": false
+      }
+    ]
+  },
+  "dweller_hurt": {
+    "sounds": [
+      {
+        "name": "cavenoise:dweller_hurt_4",
+        "stream": false
+      },
+      {
+        "name": "cavenoise:dweller_hurt_3",
+        "stream": false
+      },
+      {
+        "name": "cavenoise:dweller_hurt_2",
+        "stream": false
+      },
+      {
+        "name": "cavenoise:dweller_hurt_1",
+        "stream": false
+      }
+    ]
+  },
+  "dweller_death": {
+    "subtitle": "subtitles.dweller_death",
+    "sounds": [
+      {
+        "name": "cavenoise:dweller_death",
+        "stream": false
+      }
+    ]
+  },
+  "disappear": {
+    "sounds": [
+      {
+        "name": "cavenoise:disappear",
+        "stream": false
+      }
+    ]
+  },
+  "climb": {
+    "sounds": [
+      {
+        "name": "cavenoise:climb_8",
+        "stream": false
+      },
+      {
+        "name": "cavenoise:climb_7",
+        "stream": false
+      },
+      {
+        "name": "cavenoise:climb_6",
+        "stream": false
+      },
+      {
+        "name": "cavenoise:climb_5",
+        "stream": false
+      },
+      {
+        "name": "cavenoise:climb_4",
+        "stream": false
+      },
+      {
+        "name": "cavenoise:climb_3",
+        "stream": false
+      },
+      {
+        "name": "cavenoise:climb_2",
+        "stream": false
+      },
+      {
+        "name": "cavenoise:climb_1",
+        "stream": false
+      }
+    ]
+  },
+  "chase_step": {
+    "sounds": [
+      {
+        "name": "cavenoise:chase_step_4",
+        "stream": false
+      },
+      {
+        "name": "cavenoise:chase_step_3",
+        "stream": false
+      },
+      {
+        "name": "cavenoise:chase_step_2",
+        "stream": false
+      },
+      {
+        "name": "cavenoise:chase_step_1",
+        "stream": false
+      }
+    ]
+  },
+  "cavenoise": {
+    "subtitle": "subtitles.cavenoise",
+    "sounds": [
+      {
+        "name": "cavenoise:cavenoise_4",
+        "stream": false
+      },
+      {
+        "name": "cavenoise:cavenoise_3",
+        "stream": false
+      },
+      {
+        "name": "cavenoise:cavenoise_2",
+        "stream": false
+      },
+      {
+        "name": "cavenoise:cavenoise_1",
+        "stream": false
+      }
+    ]
+  },
+  "breathing": {
+    "sounds": [
+      {
+        "name": "cavenoise:breathing3",
+        "stream": false
+      },
+      {
+        "name": "cavenoise:breathing2",
+        "stream": false
+      },
+      {
+        "name": "cavenoise:breathing1",
+        "stream": false
+      },
+      {
+        "name": "cavenoise:breathing0",
+        "stream": false
+      }
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "subtitles.chase": "",
+  "subtitles.stalk": "",
+  "subtitles.spotted": "",
+  "subtitles.flee": "",
+  "subtitles.dweller_hurt": "",
+  "subtitles.dweller_death": "Dweller dies",
+  "subtitles.disappear": "",
+  "subtitles.climb": "",
+  "subtitles.chase_step": "",
+  "subtitles.cavenoise": "Eerie noise",
+  "entity.cavenoise.cave_dweller": "Cave Dweller",
+  "item.cavenoise.cave_dweller_spawn_egg": "Cave Dweller Spawn Egg",
+  "death.attack.dweller_damage": "%1$s was torn apart by the %2$s",
+  "death.attack.dweller_damage.player": "%1$s died whilst being chased",
+  "death.attack.dweller_damage.item": "%1$s was killed by %2$s using %3$s",
+  "subtitles.breathing": ""
+}

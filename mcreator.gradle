@@ -1,0 +1,31 @@
+repositories {
+    maven {
+    	url = "https://jitpack.io"
+    }
+}
+
+dependencies {
+	implementation 'com.github.Virtuoel:Pehkui:3.8.3-1.21-neoforge'
+}
+
+
+repositories {
+  exclusiveContent {
+    forRepository {
+      maven {
+        name = 'GeckoLib'
+        url = 'https://dl.cloudsmith.io/public/geckolib3/geckolib/maven/'
+      }
+    }
+    filter {
+      includeGroupAndSubgroups('software.bernie.geckolib')
+      includeGroupAndSubgroups('com.geckolib')
+    }
+  }
+}
+
+dependencies {
+  implementation 'software.bernie.geckolib:geckolib-neoforge-1.21.1:4.9.2'
+}
+
+

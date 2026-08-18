@@ -1,0 +1,25 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:seagrass",
+    "minecraft:carrots",
+    "minecraft:cave_air",
+    "minecraft:cherry_sapling",
+    "minecraft:oak_sapling",
+    "minecraft:birch_sapling",
+    "minecraft:spruce_sapling",
+    "minecraft:fern",
+    "minecraft:torchflower_crop",
+    "minecraft:wheat",
+    "minecraft:void_air",
+    "minecraft:air",
+    "minecraft:acacia_sapling",
+    "minecraft:short_grass",
+    "minecraft:tall_seagrass",
+    "minecraft:pitcher_crop",
+    "minecraft:jungle_sapling",
+    "minecraft:dark_oak_sapling",
+    "minecraft:tall_grass",
+    "minecraft:potatoes"
+  ]
+}

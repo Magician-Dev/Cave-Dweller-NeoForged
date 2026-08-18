@@ -1,0 +1,48 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="Unlicense"
+
+[[mods]]
+modId="cavenoise"
+version="1.0.1"
+displayName="Cave Noise"
+displayURL="https://example.com"
+logoFile="logo.png"
+credits="Thanks to Gargin for the OG Mod"
+authors="Magician_DEV"
+description="Adds a horrifying monster, and some extra cave sounds (ported for 1.21.1)"
+
+# Start of user code block mod configuration
+# End of user code block mod configuration
+
+[[dependencies.cavenoise]]
+    modId="neoforge"
+    type="required"
+    versionRange="[21.1.232,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.cavenoise]]
+    modId="minecraft"
+    type="required"
+    versionRange="[1.21.1]"
+    ordering="AFTER"
+    side="BOTH"
+
+
+[[dependencies.cavenoise]]
+    modId="pehkui"
+    type="optional"
+    versionRange="[0,)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.cavenoise]]
+    modId="geckolib"
+    type="optional"
+    versionRange="[0,)"
+    ordering="NONE"
+    side="BOTH"
+
+
+# Start of user code block dependencies configuration
+# End of user code block dependencies configuration

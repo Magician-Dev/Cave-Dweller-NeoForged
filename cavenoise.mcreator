@@ -1,0 +1,980 @@
+{
+  "mod_elements": [
+    {
+      "name": "CaveDweller",
+      "type": "animatedentity",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "cave_dweller",
+      "metadata": {
+        "files": [
+          "src/main/java/com/magiciandev/cavenoise/entity/layer/CaveDwellerLayer.java",
+          "src/main/resources/assets/cavenoise/models/item/cave_dweller_spawn_egg.json",
+          "src/main/java/com/magiciandev/cavenoise/entity/CaveDwellerEntity.java",
+          "src/main/java/com/magiciandev/cavenoise/client/renderer/CaveDwellerRenderer.java",
+          "src/main/java/com/magiciandev/cavenoise/entity/model/CaveDwellerModel.java"
+        ]
+      }
+    },
+    {
+      "name": "CaveDwellerTick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cave_dweller_tick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/com/magiciandev/cavenoise/procedures/CaveDwellerTickProcedure.java"
+        ]
+      },
+      "path": "~/Ticks"
+    },
+    {
+      "name": "PlayerTick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "player_tick",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/com/magiciandev/cavenoise/procedures/PlayerTickProcedure.java"
+        ]
+      },
+      "path": "~/Ticks"
+    },
+    {
+      "name": "DwellerTargetSeesMe",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dweller_target_sees_me",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "files": [
+          "src/main/java/com/magiciandev/cavenoise/procedures/DwellerTargetSeesMeProcedure.java"
+        ],
+        "return_type": "logic"
+      },
+      "path": "~/Goals"
+    },
+    {
+      "name": "DwellerStrollCondition",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dweller_stroll_condition",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "files": [
+          "src/main/java/com/magiciandev/cavenoise/procedures/DwellerStrollConditionProcedure.java"
+        ],
+        "return_type": "logic"
+      },
+      "path": "~/Goals"
+    },
+    {
+      "name": "LoopAngle",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "loop_angle",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "angle",
+            "type": "number"
+          }
+        ],
+        "return_type": "number",
+        "files": [
+          "src/main/java/com/magiciandev/cavenoise/procedures/LoopAngleProcedure.java"
+        ]
+      },
+      "path": "~/Methods"
+    },
+    {
+      "name": "InPlayerLineOfSight",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "in_player_line_of_sight",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/com/magiciandev/cavenoise/procedures/InPlayerLineOfSightProcedure.java"
+        ]
+      },
+      "path": "~/Methods"
+    },
+    {
+      "name": "CaveDwellerSpawns",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cave_dweller_spawns",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/com/magiciandev/cavenoise/procedures/CaveDwellerSpawnsProcedure.java"
+        ]
+      },
+      "path": "~/Ticks"
+    },
+    {
+      "name": "DwellerStalk",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dweller_stalk",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/com/magiciandev/cavenoise/procedures/DwellerStalkProcedure.java"
+        ]
+      },
+      "path": "~/Goals"
+    },
+    {
+      "name": "DwellerMeleeCondition",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dweller_melee_condition",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "return_type": "logic",
+        "files": [
+          "src/main/java/com/magiciandev/cavenoise/procedures/DwellerMeleeConditionProcedure.java"
+        ]
+      },
+      "path": "~/Goals"
+    },
+    {
+      "name": "DwellerSpotted",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dweller_spotted",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/com/magiciandev/cavenoise/procedures/DwellerSpottedProcedure.java"
+        ]
+      },
+      "path": "~/Goals"
+    },
+    {
+      "name": "DwellerAggro",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dweller_aggro",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/com/magiciandev/cavenoise/procedures/DwellerAggroProcedure.java"
+        ]
+      },
+      "path": "~/Goals"
+    },
+    {
+      "name": "DwellerDespawn",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dweller_despawn",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/com/magiciandev/cavenoise/procedures/DwellerDespawnProcedure.java"
+        ]
+      },
+      "path": "~/Goals"
+    },
+    {
+      "name": "DwellerFlee",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dweller_flee",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/com/magiciandev/cavenoise/procedures/DwellerFleeProcedure.java"
+        ]
+      },
+      "path": "~/Goals"
+    },
+    {
+      "name": "GeneratePos",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "generate_pos",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "victim",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "return_type": "vector",
+        "files": [
+          "src/main/java/com/magiciandev/cavenoise/procedures/GeneratePosProcedure.java"
+        ]
+      },
+      "path": "~/Methods"
+    },
+    {
+      "name": "DwellerSpawn",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dweller_spawn",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "victim",
+            "type": "entity"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/com/magiciandev/cavenoise/procedures/DwellerSpawnProcedure.java"
+        ]
+      },
+      "path": "~/Goals"
+    },
+    {
+      "name": "WorldTick",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "world_tick",
+      "metadata": {
+        "dependencies": [],
+        "files": [
+          "src/main/java/com/magiciandev/cavenoise/procedures/WorldTickProcedure.java"
+        ]
+      },
+      "path": "~/Ticks"
+    },
+    {
+      "name": "DwellerBreakShield",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dweller_break_shield",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/com/magiciandev/cavenoise/procedures/DwellerBreakShieldProcedure.java"
+        ]
+      },
+      "path": "~/Goals"
+    },
+    {
+      "name": "DwellerDamage",
+      "type": "damagetype",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dweller_damage",
+      "metadata": {
+        "files": [
+          "src/main/resources/data/cavenoise/damage_type/dweller_damage.json"
+        ]
+      }
+    },
+    {
+      "name": "EntityHurt",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "entity_hurt",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/com/magiciandev/cavenoise/procedures/EntityHurtProcedure.java"
+        ]
+      },
+      "path": "~/Ticks"
+    },
+    {
+      "name": "CDSpawnIndirect",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cd_spawn_indirect",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "x",
+            "type": "number"
+          },
+          {
+            "name": "y",
+            "type": "number"
+          },
+          {
+            "name": "z",
+            "type": "number"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/com/magiciandev/cavenoise/procedures/CDSpawnIndirectProcedure.java"
+        ]
+      },
+      "path": "~/Methods"
+    },
+    {
+      "name": "SpawnDweller",
+      "type": "command",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "spawn_dweller",
+      "metadata": {
+        "files": [
+          "src/main/java/com/magiciandev/cavenoise/command/SpawnDwellerCommand.java"
+        ]
+      },
+      "path": "~/Methods"
+    },
+    {
+      "name": "SetDwellerClock",
+      "type": "command",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "set_dweller_clock",
+      "metadata": {
+        "files": [
+          "src/main/java/com/magiciandev/cavenoise/command/SetDwellerClockCommand.java"
+        ]
+      },
+      "path": "~/Methods"
+    },
+    {
+      "name": "CDSetClock",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "cd_set_clock",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "arguments",
+            "type": "cmdcontext"
+          },
+          {
+            "name": "world",
+            "type": "world"
+          }
+        ],
+        "files": [
+          "src/main/java/com/magiciandev/cavenoise/procedures/CDSetClockProcedure.java"
+        ]
+      },
+      "path": "~/Methods"
+    },
+    {
+      "name": "DwellerKills",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "dweller_kills",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          }
+        ],
+        "files": [
+          "src/main/java/com/magiciandev/cavenoise/procedures/DwellerKillsProcedure.java"
+        ]
+      },
+      "path": "~/Goals"
+    },
+    {
+      "name": "EntityDies",
+      "type": "procedure",
+      "compiles": true,
+      "locked_code": false,
+      "registry_name": "entity_dies",
+      "metadata": {
+        "dependencies": [
+          {
+            "name": "entity",
+            "type": "entity"
+          },
+          {
+            "name": "sourceentity",
+            "type": "entity"
+          }
+        ],
+        "files": [
+          "src/main/java/com/magiciandev/cavenoise/procedures/EntityDiesProcedure.java"
+        ]
+      },
+      "path": "~/Ticks"
+    },
+    {
+      "name": "CaveDwellerUpdateInterval",
+      "type": "mixin",
+      "compiles": true,
+      "locked_code": true,
+      "registry_name": "cave_dweller_update_interval",
+      "metadata": {
+        "files": [
+          "src/main/java/com/magiciandev/cavenoise/mixin/CaveDwellerUpdateIntervalMixin.java"
+        ]
+      }
+    }
+  ],
+  "variable_elements": [
+    {
+      "name": "shouldNotContinue",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "clockToDweller",
+      "type": "number",
+      "scope": "map",
+      "value": "0.0"
+    },
+    {
+      "name": "currentlyStaring",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "anySpelunkers",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "spelunkers",
+      "type": "arraylist",
+      "scope": "map",
+      "value": "new ArrayList\u003c\u003e()"
+    },
+    {
+      "name": "spelunker",
+      "type": "logic",
+      "scope": "player_lifetime",
+      "value": "false"
+    },
+    {
+      "name": "dwellerExists",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "cavenoiseClock",
+      "type": "number",
+      "scope": "map",
+      "value": "0"
+    },
+    {
+      "name": "breakInvis",
+      "type": "logic",
+      "scope": "map",
+      "value": "false"
+    },
+    {
+      "name": "continueStalkingClock",
+      "type": "number",
+      "scope": "map",
+      "value": "69420.0"
+    }
+  ],
+  "sound_elements": [
+    {
+      "name": "chase",
+      "files": [
+        "chase_4",
+        "chase_3",
+        "chase_2",
+        "chase_1"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    },
+    {
+      "name": "stalk",
+      "files": [
+        "stalk_5",
+        "stalk_4",
+        "stalk_3",
+        "stalk_2",
+        "stalk_1"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    },
+    {
+      "name": "spotted",
+      "files": [
+        "spotted"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    },
+    {
+      "name": "flee",
+      "files": [
+        "flee_2",
+        "flee_1"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    },
+    {
+      "name": "dweller_hurt",
+      "files": [
+        "dweller_hurt_4",
+        "dweller_hurt_3",
+        "dweller_hurt_2",
+        "dweller_hurt_1"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    },
+    {
+      "name": "dweller_death",
+      "files": [
+        "dweller_death"
+      ],
+      "category": "neutral",
+      "subtitle": "Dweller dies"
+    },
+    {
+      "name": "disappear",
+      "files": [
+        "disappear"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    },
+    {
+      "name": "climb",
+      "files": [
+        "climb_8",
+        "climb_7",
+        "climb_6",
+        "climb_5",
+        "climb_4",
+        "climb_3",
+        "climb_2",
+        "climb_1"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    },
+    {
+      "name": "chase_step",
+      "files": [
+        "chase_step_4",
+        "chase_step_3",
+        "chase_step_2",
+        "chase_step_1"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    },
+    {
+      "name": "cavenoise",
+      "files": [
+        "cavenoise_4",
+        "cavenoise_3",
+        "cavenoise_2",
+        "cavenoise_1"
+      ],
+      "category": "neutral",
+      "subtitle": "Eerie noise"
+    },
+    {
+      "name": "breathing",
+      "files": [
+        "breathing3",
+        "breathing2",
+        "breathing1",
+        "breathing0"
+      ],
+      "category": "neutral",
+      "subtitle": ""
+    }
+  ],
+  "tag_elements": {
+    "BLOCKS:mod:passthrough": [
+      "Blocks.AIR",
+      "Blocks.VOID_AIR",
+      "Blocks.CAVE_AIR",
+      "Blocks.SAPLING#0",
+      "Blocks.SAPLING#1",
+      "Blocks.SAPLING#2",
+      "Blocks.SAPLING#3",
+      "Blocks.SAPLING#4",
+      "Blocks.SAPLING#5",
+      "Blocks.CHERRY_SAPLING",
+      "Blocks.TALLGRASS#1",
+      "Blocks.TALLGRASS#2",
+      "Blocks.DOUBLE_PLANT#2",
+      "Blocks.SEAGRASS",
+      "Blocks.TALL_SEAGRASS",
+      "Blocks.WHEAT",
+      "Blocks.TORCHFLOWER_CROP",
+      "Blocks.PITCHER_CROP",
+      "Blocks.POTATOES",
+      "Blocks.CARROTS"
+    ],
+    "DAMAGE_TYPES:minecraft:bypasses_armor": [
+      "CUSTOM:DwellerDamage"
+    ]
+  },
+  "tab_element_order": {},
+  "language_map": {
+    "en_us": {
+      "subtitles.chase": "",
+      "subtitles.stalk": "",
+      "subtitles.spotted": "",
+      "subtitles.flee": "",
+      "subtitles.dweller_hurt": "",
+      "subtitles.dweller_death": "Dweller dies",
+      "subtitles.disappear": "",
+      "subtitles.climb": "",
+      "subtitles.chase_step": "",
+      "subtitles.cavenoise": "Eerie noise",
+      "entity.cavenoise.cave_dweller": "Cave Dweller",
+      "item.cavenoise.cave_dweller_spawn_egg": "Cave Dweller Spawn Egg",
+      "death.attack.dweller_damage": "%1$s was torn apart by the %2$s",
+      "death.attack.dweller_damage.player": "%1$s died whilst being chased",
+      "death.attack.dweller_damage.item": "%1$s was killed by %2$s using %3$s",
+      "subtitles.breathing": ""
+    },
+    "en_au": {
+      "subtitles.chase": "",
+      "subtitles.stalk": "",
+      "subtitles.spotted": "",
+      "subtitles.flee": "",
+      "subtitles.dweller_hurt": "",
+      "subtitles.dweller_death": "Dweller dies",
+      "subtitles.disappear": "",
+      "subtitles.climb": "",
+      "subtitles.chase_step": "Footsteps",
+      "subtitles.cavenoise": "Eerie noise",
+      "entity.cavenoise.cave_dweller": "Cave Dweller",
+      "item.cavenoise.cave_dweller_spawn_egg": "Cave Dweller Spawn Egg",
+      "death.attack.dweller_damage": "%1$s was torn apart by the %2$s",
+      "death.attack.dweller_damage.player": "%1$s died whilst being chased",
+      "death.attack.dweller_damage.item": "%1$s was killed by %2$s using %3$s",
+      "subtitles.breathing": ""
+    },
+    "en_gb": {
+      "subtitles.chase": "",
+      "subtitles.stalk": "",
+      "subtitles.spotted": "",
+      "subtitles.flee": "",
+      "subtitles.dweller_hurt": "",
+      "subtitles.dweller_death": "Dweller dies",
+      "subtitles.disappear": "",
+      "subtitles.climb": "",
+      "subtitles.chase_step": "Footsteps",
+      "subtitles.cavenoise": "Eerie noise",
+      "entity.cavenoise.cave_dweller": "Cave Dweller",
+      "item.cavenoise.cave_dweller_spawn_egg": "Cave Dweller Spawn Egg",
+      "death.attack.dweller_damage": "%1$s was torn apart by the %2$s",
+      "death.attack.dweller_damage.player": "%1$s died whilst being chased",
+      "death.attack.dweller_damage.item": "%1$s was killed by %2$s using %3$s",
+      "subtitles.breathing": ""
+    }
+  },
+  "metadata": {
+    "files": [
+      "src/main/java/com/magiciandev/cavenoise/init/EntityAnimationFactory.java",
+      "src/main/java/com/magiciandev/cavenoise/client/AnimatedEntityRenderers.java",
+      "src/main/java/com/magiciandev/cavenoise/init/CavenoiseModItems.java",
+      "src/main/java/com/magiciandev/cavenoise/init/CavenoiseModEntityRenderers.java",
+      "src/main/java/com/magiciandev/cavenoise/init/CavenoiseModEntities.java",
+      "src/main/java/com/magiciandev/cavenoise/CavenoiseMod.java",
+      "src/main/resources/assets/cavenoise/sounds.json",
+      "src/main/java/com/magiciandev/cavenoise/network/CavenoiseModVariables.java",
+      "src/main/resources/META-INF/neoforge.mods.toml",
+      "src/main/java/com/magiciandev/cavenoise/init/CavenoiseModSounds.java",
+      "src/main/resources/cavenoise.mixins.json",
+      "src/main/java/com/magiciandev/cavenoise/network/NbtArrayLists.java",
+      "src/main/resources/pack.mcmeta"
+    ]
+  },
+  "foldersRoot": {
+    "name": "~",
+    "children": [
+      {
+        "name": "Methods",
+        "children": []
+      },
+      {
+        "name": "Ticks",
+        "children": []
+      },
+      {
+        "name": "Goals",
+        "children": []
+      }
+    ]
+  },
+  "workspaceSettings": {
+    "modid": "cavenoise",
+    "modName": "Cave Noise",
+    "version": "1.0.1",
+    "description": "Adds a horrifying monster, and some extra cave sounds (ported for 1.21.1)",
+    "author": "Magician_DEV",
+    "websiteURL": "https://example.com",
+    "license": "Unlicense",
+    "serverSideOnly": false,
+    "modPicture": "dwellercavenoisethumbnail1x1",
+    "requiredMods": [],
+    "dependencies": [],
+    "dependants": [],
+    "mcreatorDependencies": [
+      "pehkui",
+      "geckolib"
+    ],
+    "currentGenerator": "neoforge-1.21.1",
+    "credits": "Thanks to Gargin for the OG Mod",
+    "modElementsPackage": "com.magiciandev.cavenoise"
+  },
+  "mcreatorVersion": 202600230420
+}

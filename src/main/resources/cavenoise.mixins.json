@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "package": "com.magiciandev.cavenoise.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "CaveDwellerUpdateIntervalMixin"
+  ],
+  "client": [],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.8.4"
+}
