@@ -45,14 +45,11 @@ public class DwellerSpottedProcedure {
 				} else {
 					CavenoiseModVariables.MapVariables.get(world).continueStalkingClock = CavenoiseModVariables.MapVariables.get(world).continueStalkingClock - 1;
 					CavenoiseModVariables.MapVariables.get(world).markSyncDirty();
-					CavenoiseMod.LOGGER.info(CavenoiseModVariables.MapVariables.get(world).continueStalkingClock);
-					CavenoiseMod.LOGGER.info(continueStalking);
 				}
 				if (entity instanceof Mob _entity)
 					_entity.getNavigation().moveTo(((findEntityInWorldRange(world, Player.class, x, y, z, 128)).getX()), ((findEntityInWorldRange(world, Player.class, x, y, z, 128)).getY()),
 							((findEntityInWorldRange(world, Player.class, x, y, z, 128)).getZ()), 0.7);
 			} else {
-				CavenoiseMod.LOGGER.info("works");
 				if (entity instanceof Mob _entity && (findEntityInWorldRange(world, Player.class, x, y, z, 128)) instanceof LivingEntity _ent)
 					_entity.setTarget(_ent);
 				if (entity instanceof Mob _entity)
@@ -132,9 +129,9 @@ public class DwellerSpottedProcedure {
 			if (entity.getPersistentData().getDouble("breathingClock") == 0) {
 				if (world instanceof Level _level) {
 					if (!_level.isClientSide()) {
-						_level.playSound(null, BlockPos.containing(entity.getX(), entity.getY(), entity.getZ()), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("cavenoise:breathing")), SoundSource.NEUTRAL, (float) 0.5, 1);
+						_level.playSound(null, BlockPos.containing(entity.getX(), entity.getY(), entity.getZ()), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("cavenoise:breathing")), SoundSource.NEUTRAL, 1, 1);
 					} else {
-						_level.playLocalSound((entity.getX()), (entity.getY()), (entity.getZ()), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("cavenoise:breathing")), SoundSource.NEUTRAL, (float) 0.5, 1, false);
+						_level.playLocalSound((entity.getX()), (entity.getY()), (entity.getZ()), BuiltInRegistries.SOUND_EVENT.get(ResourceLocation.parse("cavenoise:breathing")), SoundSource.NEUTRAL, 1, 1, false);
 					}
 				}
 				entity.getPersistentData().putDouble("breathingClock", 80);

@@ -862,6 +862,28 @@
     ],
     "DAMAGE_TYPES:minecraft:bypasses_armor": [
       "CUSTOM:DwellerDamage"
+    ],
+    "BLOCKS:mod:trapdoors": [
+      "Blocks.TRAPDOOR",
+      "Blocks.SPRUCE_TRAPDOOR",
+      "Blocks.BIRCH_TRAPDOOR",
+      "Blocks.JUNGLE_TRAPDOOR",
+      "Blocks.ACACIA_TRAPDOOR",
+      "Blocks.DARK_OAK_TRAPDOOR",
+      "Blocks.CRIMSON_TRAPDOOR",
+      "Blocks.WARPED_TRAPDOOR",
+      "Blocks.MANGROVE_TRAPDOOR",
+      "Blocks.CHERRY_TRAPDOOR",
+      "Blocks.BAMBOO_TRAPDOOR",
+      "Blocks.IRON_TRAPDOOR",
+      "Blocks.COPPER_TRAPDOOR",
+      "Blocks.EXPOSED_COPPER_TRAPDOOR",
+      "Blocks.WEATHERED_COPPER_TRAPDOOR",
+      "Blocks.OXIDIZED_COPPER_TRAPDOOR",
+      "Blocks.WAXED_COPPER_TRAPDOOR",
+      "Blocks.WAXED_EXPOSED_COPPER_TRAPDOOR",
+      "Blocks.WAXED_WEATHERED_COPPER_TRAPDOOR",
+      "Blocks.WAXED_OXIDIZED_COPPER_TRAPDOOR"
     ]
   },
   "tab_element_order": {},
@@ -958,7 +980,7 @@
   "workspaceSettings": {
     "modid": "cavenoise",
     "modName": "Cave Noise",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "description": "Adds a horrifying monster, and some extra cave sounds (ported for 1.21.1)",
     "author": "Magician_DEV",
     "websiteURL": "https://example.com",

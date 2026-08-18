@@ -6,12 +6,16 @@ import virtuoel.pehkui.api.ScaleOperations;
 import net.minecraft.world.phys.Vec3;
 import net.minecraft.world.phys.Vec2;
 import net.minecraft.world.phys.AABB;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.LevelAccessor;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.entity.Mob;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.Entity;
+import net.minecraft.world.effect.MobEffects;
+import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.resources.ResourceLocation;
@@ -121,8 +125,11 @@ public class DwellerAggroProcedure {
 					for (Entity entityiterator : world.getEntitiesOfClass(Entity.class, new AABB(_center, _center).inflate(100 / 2d), e -> true).stream().sorted(Comparator.comparingDouble(_entcnd -> _entcnd.distanceToSqr(_center))).toList()) {
 						if (entityiterator == (entity instanceof Mob _mobEnt ? (Entity) _mobEnt.getTarget() : null)) {
 							if (entityiterator.getY() > entity.getY()) {
-								if (entity instanceof CaveDwellerEntity _datEntSetL)
-									_datEntSetL.getEntityData().set(CaveDwellerEntity.DATA_CLIMBING, true);
+								if ((entity instanceof CaveDwellerEntity _datEntL51 && _datEntL51.getEntityData().get(CaveDwellerEntity.DATA_CROUCHING)) == false
+										&& (entity instanceof CaveDwellerEntity _datEntL52 && _datEntL52.getEntityData().get(CaveDwellerEntity.DATA_SQUEEZING)) == false) {
+									if (entity instanceof CaveDwellerEntity _datEntSetL)
+										_datEntSetL.getEntityData().set(CaveDwellerEntity.DATA_CLIMBING, true);
+								}
 							}
 						}
 					}
@@ -154,9 +161,9 @@ public class DwellerAggroProcedure {
 				}
 			}
 		}
-		if ((entity instanceof CaveDwellerEntity _datEntL77 && _datEntL77.getEntityData().get(CaveDwellerEntity.DATA_CLIMBING)) == true
-				&& (entity instanceof CaveDwellerEntity _datEntL78 && _datEntL78.getEntityData().get(CaveDwellerEntity.DATA_CROUCHING)) == false
-				&& (entity instanceof CaveDwellerEntity _datEntL79 && _datEntL79.getEntityData().get(CaveDwellerEntity.DATA_SQUEEZING)) == false) {
+		if ((entity instanceof CaveDwellerEntity _datEntL79 && _datEntL79.getEntityData().get(CaveDwellerEntity.DATA_CLIMBING)) == true
+				&& (entity instanceof CaveDwellerEntity _datEntL80 && _datEntL80.getEntityData().get(CaveDwellerEntity.DATA_CROUCHING)) == false
+				&& (entity instanceof CaveDwellerEntity _datEntL81 && _datEntL81.getEntityData().get(CaveDwellerEntity.DATA_SQUEEZING)) == false) {
 			if (!((entity instanceof Mob _mobEnt ? (Entity) _mobEnt.getTarget() : null) == null)) {
 				{
 					final Vec3 _center = new Vec3(x, y, z);
@@ -184,7 +191,12 @@ public class DwellerAggroProcedure {
 				entity.setDeltaMovement(new Vec3((entity.getDeltaMovement().x() / 4), 0.2, (-0.2)));
 				entity.fallDistance = 0;
 			}
-			if (world.getBlockState(BlockPos.containing(x, y + 3, z)).canOcclude()) {
+			if (world.getBlockState(BlockPos.containing(x, y + 3, z)).canOcclude() || (world.getBlockState(BlockPos.containing(x, y + 3, z))).is(BlockTags.create(ResourceLocation.parse("cavenoise:trapdoors")))) {
+				if ((world.getBlockState(BlockPos.containing(x, y + 3, z))).is(BlockTags.create(ResourceLocation.parse("cavenoise:trapdoors")))) {
+					if (!world.isClientSide()) {
+						world.destroyBlock(BlockPos.containing(x, y + 3, z), false);
+					}
+				}
 				if (world.getBlockState(BlockPos.containing(x, y + 3, z)).getDestroySpeed(world, BlockPos.containing(x, y + 3, z)) <= 5) {
 					if (!world.isClientSide()) {
 						world.destroyBlock(BlockPos.containing(x, y + 3, z), false);
@@ -304,7 +316,7 @@ public class DwellerAggroProcedure {
 			_level.getServer().getCommands().performPrefixedCommand(new CommandSourceStack(CommandSource.NULL, new Vec3(x, y, z), Vec2.ZERO, _level, 4, "", Component.literal(""), _level.getServer(), null).withSuppressedOutput(), "");
 		if (!((entity instanceof Mob _mobEnt ? (Entity) _mobEnt.getTarget() : null) == null)) {
 			target = entity instanceof Mob _mobEnt ? (Entity) _mobEnt.getTarget() : null;
-			Vec3 forward = target.position().subtract(entity.position()).normalize();
+			Vec3 forward = new Vec3(target.getX() - entity.getX(), 0, target.getZ() - entity.getZ()).normalize();
 			yx = entity.getX() + forward.x * 0.6;
 			yz = entity.getZ() + forward.z * 0.6;
 			if (world.getBlockState(BlockPos.containing(yx, entity.getY() + 1, yz)).canOcclude()) {
@@ -328,7 +340,16 @@ public class DwellerAggroProcedure {
 				}
 			}
 		}
-		if (!(entity instanceof CaveDwellerEntity _datEntL200 && _datEntL200.getEntityData().get(CaveDwellerEntity.DATA_CLIMBING))) {
+		if (world.getBlockState(BlockPos.containing(entity.getX(), entity.getY() + 2, entity.getZ())).canOcclude() || world.getBlockState(BlockPos.containing(entity.getX(), entity.getY() + 1, entity.getZ())).canOcclude()
+				|| world.getBlockState(BlockPos.containing(entity.getX(), entity.getY() + 1.5, entity.getZ())).canOcclude() || world.getBlockState(BlockPos.containing(Math.ceil(entity.getX()), entity.getY() + 2, entity.getZ())).canOcclude()
+				|| world.getBlockState(BlockPos.containing(entity.getX(), entity.getY() + 2, Math.ceil(entity.getZ()))).canOcclude()
+				|| world.getBlockState(BlockPos.containing(Math.ceil(entity.getX()), entity.getY() + 2, Math.ceil(entity.getZ()))).canOcclude()
+				|| world.getBlockState(BlockPos.containing(Math.floor(entity.getX()), entity.getY() + 2, entity.getZ())).canOcclude()
+				|| world.getBlockState(BlockPos.containing(entity.getX(), entity.getY() + 2, Math.floor(entity.getZ()))).canOcclude()
+				|| world.getBlockState(BlockPos.containing(Math.floor(entity.getX()), entity.getY() + 2, Math.floor(entity.getZ()))).canOcclude() || entity.isInWall()) {
+			shouldCrouch = true;
+		}
+		if (!(entity instanceof CaveDwellerEntity _datEntL245 && _datEntL245.getEntityData().get(CaveDwellerEntity.DATA_CLIMBING))) {
 			if (shouldSqueeze) {
 				if (entity instanceof CaveDwellerEntity _datEntSetL)
 					_datEntSetL.getEntityData().set(CaveDwellerEntity.DATA_SQUEEZING, true);
@@ -349,13 +370,18 @@ public class DwellerAggroProcedure {
 			if (entity instanceof CaveDwellerEntity _datEntSetL)
 				_datEntSetL.getEntityData().set(CaveDwellerEntity.DATA_CROUCHING, false);
 		}
-		if (entity instanceof CaveDwellerEntity _datEntL207 && _datEntL207.getEntityData().get(CaveDwellerEntity.DATA_CROUCHING)) {
+		if (entity instanceof CaveDwellerEntity _datEntL252 && _datEntL252.getEntityData().get(CaveDwellerEntity.DATA_CROUCHING)) {
 			ScaleTypes.HITBOX_HEIGHT.getScaleData(entity).setTargetScale((float) ScaleOperations.SET.applyAsDouble(ScaleTypes.HITBOX_HEIGHT.getScaleData(entity).getTargetScale(), 0.68));
 			if (entity instanceof CaveDwellerEntity) {
 				((CaveDwellerEntity) entity).setControllerAnimation("procedure", "animation.cave_dweller.crouch_run_new");
 			}
 		} else {
 			ScaleTypes.HITBOX_HEIGHT.getScaleData(entity).setTargetScale((float) ScaleOperations.SET.applyAsDouble(ScaleTypes.HITBOX_HEIGHT.getScaleData(entity).getTargetScale(), 1));
+		}
+		if ((world.getBlockState(BlockPos.containing(x, y, z))).getBlock() == Blocks.LAVA) {
+			if (entity instanceof LivingEntity _entity && !_entity.level().isClientSide())
+				_entity.addEffect(new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 20, 3, false, false));
+			entity.setDeltaMovement(new Vec3((entity.getDeltaMovement().x() * 2), (entity.getDeltaMovement().y()), (entity.getDeltaMovement().z() * 2)));
 		}
 	}
 

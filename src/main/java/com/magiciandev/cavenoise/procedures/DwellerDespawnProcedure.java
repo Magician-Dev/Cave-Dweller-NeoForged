@@ -36,6 +36,7 @@ public class DwellerDespawnProcedure {
 		CavenoiseModVariables.MapVariables.get(world).markSyncDirty();
 		entity.getPersistentData().putBoolean("toDespawn", false);
 		entity.getPersistentData().putBoolean("toPlayFleeingSound", false);
+		entity.getPersistentData().putBoolean("continuedS", false);
 		CavenoiseModVariables.MapVariables.get(world).shouldNotContinue = false;
 		CavenoiseModVariables.MapVariables.get(world).currentlyStaring = false;
 		CavenoiseModVariables.MapVariables.get(world).breakInvis = false;
