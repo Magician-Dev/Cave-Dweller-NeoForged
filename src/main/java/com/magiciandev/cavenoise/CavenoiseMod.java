@@ -40,6 +40,7 @@ public class CavenoiseMod {
 
 	public CavenoiseMod(IEventBus modEventBus) {
 		// Start of user code block mod constructor
+		modEventBus.addListener(this::buildContents);
 		// End of user code block mod constructor
 		NeoForge.EVENT_BUS.register(this);
 		modEventBus.addListener(this::registerNetworking);
@@ -52,6 +53,11 @@ public class CavenoiseMod {
 	}
 
 	// Start of user code block mod methods
+	public void buildContents(BuildCreativeModeTabContentsEvent event) {
+		if (event.getTabKey() == CreativeModeTabs.SPAWN_EGGS) {
+			event.accept(CavenoiseModItems.CAVE_DWELLER_SPAWN_EGG);
+		}
+	}
 	// End of user code block mod methods
 	private static boolean networkingRegistered = false;
 	private static final Map<CustomPacketPayload.Type<?>, NetworkMessage<?>> MESSAGES = new HashMap<>();
