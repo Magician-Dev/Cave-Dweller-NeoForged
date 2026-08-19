@@ -4,7 +4,7 @@ license="Unlicense"
 
 [[mods]]
 modId="cavenoise"
-version="1.1.0"
+version="1.1.1"
 displayName="Cave Noise"
 displayURL="https://example.com"
 logoFile="logo.png"
